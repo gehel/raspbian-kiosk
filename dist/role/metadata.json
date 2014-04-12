@@ -1,0 +1,25 @@
+{
+  "author": "Guillaume Lederrey",
+  "checksums": {
+    "templates/kiosk/rclocal.erb": "06bdb441730d86cb628951dbb80bf42c",
+    "manifests/init.pp": "d41d8cd98f00b204e9800998ecf8427e",
+    "templates/kiosk/boot-config.txt.erb": "6dde4cea8d9741506b98c2de0a94f3f7",
+    "templates/kiosk/xinitrc.erb": "8cfb5c2e8fccf4fd7a9024923e31bd0c",
+    "Modulefile": "84e16029b78cf4010ca4782789b101af",
+    "manifests/kiosk.pp": "828c8e2dd8834eb0905ec1752723b5cc"
+  },
+  "dependencies": [
+    {
+      "name": "example42/rclocal",
+      "version_requirement": "\u003e\u003d2.0.0"
+    }
+  ],
+  "description": "",
+  "license": "",
+  "name": "gehel-role",
+  "project_page": "",
+  "source": "",
+  "summary": "",
+  "types": [],
+  "version": "1.0.0"
+}

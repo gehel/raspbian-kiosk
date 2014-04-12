@@ -1,0 +1,4 @@
+name 'gehel-role'
+version '1.0.0'
+author 'Guillaume Lederrey'
+dependency 'example42/rclocal', '>=2.0.0'
