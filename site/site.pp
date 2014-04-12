@@ -1,13 +1,21 @@
-$timezone = 'Europe/Zurich'
+$timezone_timezone = 'Europe/Zurich'
 $timezone_hw_utc = true
 $puppi = true
 $monitor = true
 $monitor_tool = ['puppi']
 $firewall = true
-$firewall_tool = 'ptables'
+$firewall_tool = 'iptables'
+$ntp_server = [
+  'fw.home.ledcom.ch',
+  '0.pool.ntp.org',
+  '1.pool.ntp.org',
+  '2.pool.ntp.org',
+]
 
 node default {
   include apt
+  include locales
+  include ntp
   include openssh
   include puppi
   include rclocal
@@ -15,21 +23,22 @@ node default {
   include timezone
 
   class { 'r10k':
-    remote      => 'https://github.com/gehel/raspbian-kiosk.git',
-    mcollective => false,
+    remote  => 'https://github.com/gehel/raspbian-kiosk.git',
+    version => '1.2.0',
   } -> cron { 'r10k-deploy-env':
     command => '/usr/local/bin/r10k deploy environment -p',
-    minute  => '*/5',
+    minute  => '0',
   }
 
   package { 'puppet': } -> cron { 'puppet-apply':
     command => '/usr/bin/puppet apply --modulepath=/etc/puppet/environments/production/modules:/etc/puppet/environments/production/dist /etc/puppet/environments/production/site/site.pp',
     hour    => '*',
+    minute  => '10',
   }
 
-  class { 'locales':
-    default   => 'en_US.UTF-8',
-    available => ["en_US.UTF-8 UTF-8"],
+  class { 'keyboard':
+    layout  => 'ch',
+    variant => 'fr',
   }
 
   class { 'role::kiosk':

@@ -1,3 +1,4 @@
 modules
 .com_puppetlabs_geppetto_pptp_target
 .metadata
+dist/role/metadata.json

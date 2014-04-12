@@ -4,7 +4,9 @@
 	<comment></comment>
 	<projects>
 		<project>apt</project>
+		<project>keyboard</project>
 		<project>locales</project>
+		<project>ntp</project>
 		<project>openssh</project>
 		<project>puppi</project>
 		<project>r10k</project>

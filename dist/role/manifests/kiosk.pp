@@ -1,4 +1,4 @@
-class role::kiosk ($url = 'http://www.google.com/ncr', $user = 'kiosk', $group = 'kiosk',) {
+class role::kiosk ($url = 'http://www.google.com/ncr', $user = 'pi') {
   package { [
     'matchbox',
     'chromium',
@@ -18,30 +18,17 @@ class role::kiosk ($url = 'http://www.google.com/ncr', $user = 'kiosk', $group =
 
   file { '/boot/config.txt':
     ensure  => 'present',
-    content => template('modules/role/kiosk/boot-config.txt.erb'),
-  }
-
-  group { $group: ensure => 'present', }
-
-  user { $user:
-    ensure => 'present',
-    gid    => $group,
-    home   => "/home/${user}",
-  }
-
-  file { "/home/${user}":
-    ensure => 'directory',
-    owner  => $user,
-    group  => $group,
+    content => template('role/kiosk/boot-config.txt.erb'),
   }
 
   file { '/boot/xinitrc':
     ensure  => 'present',
-    content => template('modules/role/kiosk/xinitrc.erb'),
+    content => template('role/kiosk/xinitrc.erb'),
   }
 
   rclocal::script { 'tv-screen':
     priority => '99',
-    content  => template('modules/role/kiosk/rclocal.erb'),
+    content  => template('role/kiosk/rclocal.erb'),
+    autoexec => false,
   }
 }
