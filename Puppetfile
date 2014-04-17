@@ -1,11 +1,17 @@
 mod 'apt',
   :git => 'https://github.com/example42/puppet-apt.git'
 
+mod 'chrome',
+  :git => 'https://github.com/gehel/puppet_chrome.git'
+
 mod 'concat',
   :git => 'https://github.com/puppetlabs/puppetlabs-concat.git'
 
 mod 'firewall',
   :git => 'https://github.com/example42/puppet-firewall.git'
+
+mod 'dashing',
+  :git => 'https://github.com/gehel/puppet-dashing.git'
 
 mod 'git',
   :git => 'https://github.com/example42/puppet-git.git'
@@ -17,7 +23,7 @@ mod 'keyboard',
   :git => 'https://github.com/gehel/puppet_keyboard.git'
 
 mod 'locales',
-  :git => 'https://github.com/gehel/puppet-module-locales.git'
+  :git => 'https://github.com/puppetmodules/puppet-module-locales.git'
 
 mod 'monitor',
   :git => 'https://github.com/example42/puppet-monitor.git'

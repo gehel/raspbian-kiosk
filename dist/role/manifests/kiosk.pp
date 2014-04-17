@@ -1,13 +1,20 @@
-class role::kiosk ($url = 'http://www.google.com/ncr', $user = 'pi') {
-  package { [
-    'matchbox',
-    'chromium',
-    'x11-xserver-utils',
-    'ttf-mscorefonts-installer',
-    'xwit',
-    'sqlite3',
-    'libnss3']:
+class role::kiosk (
+  $url                = 'http://www.google.com/ncr',
+  $user               = 'pi',
+  $framebuffer_width  = 1920,
+  $framebuffer_height = 1080,
+  $display_rotate     = '0') {
+  if !is_integer($framebuffer_width) {
+    fail("framebuffer_width is not an integer [${framebuffer_width}]")
+  }
+
+  if !is_integer($framebuffer_height) {
+    fail("framebuffer_height is not an integer [${framebuffer_height}]")
+  }
+
+  package { ['chromium', 'libnss3', 'matchbox', 'sqlite3', 'ttf-mscorefonts-installer', 'x11-xserver-utils', 'xwit',]:
     ensure => 'present',
+    before => Rclocal::Script['tv-screen'],
   }
 
   File {

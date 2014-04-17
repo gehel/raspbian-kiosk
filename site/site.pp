@@ -5,12 +5,12 @@ $monitor = true
 $monitor_tool = ['puppi']
 $firewall = true
 $firewall_tool = 'iptables'
-$ntp_server = [
-  'fw.home.ledcom.ch',
-  '0.pool.ntp.org',
-  '1.pool.ntp.org',
-  '2.pool.ntp.org',
-]
+$ntp_server = ['fw.home.ledcom.ch', '0.pool.ntp.org', '1.pool.ntp.org', '2.pool.ntp.org',]
+$chrome_package = 'chromium'
+$chrome_share_dir = '/usr/share/chromium-browser/'
+
+Exec {
+  path => '/usr/sbin:/usr/bin:/sbin:/bin', }
 
 node default {
   include apt
@@ -42,5 +42,6 @@ node default {
   }
 
   class { 'role::kiosk':
+    display_rotate => '1',
   }
 }
