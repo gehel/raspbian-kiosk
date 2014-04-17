@@ -4,7 +4,7 @@ class role::kiosk (
     'http://en.wikipedia.org/wiki/HTML_element#Frames',
     'http://localhost:3030/sample',
     ],
-  $refresh_interval   = 5000,
+  $refresh_interval   = 10000,
   $user               = 'pi',
   $user_home          = '/home/pi',
   $framebuffer_width  = 1920,
