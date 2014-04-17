@@ -26,7 +26,7 @@ mod 'monitor',
   :git => 'https://github.com/example42/puppet-monitor.git'
 
 mod 'nodejs',
-  :git => 'git@github.com:gehel/puppet-nodejs.git'
+  :git => 'https://github.com/gehel/puppet-nodejs.git'
 
 mod 'ntp',
   :git => 'https://github.com/example42/puppet-ntp.git'
