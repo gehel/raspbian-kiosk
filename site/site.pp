@@ -10,13 +10,11 @@ $chrome_package = 'chromium'
 $chrome_share_dir = '/usr/share/chromium-browser/'
 $dashing_dashboard_git_url = 'https://github.com/gehel/dashing-dashboard.git'
 
-
 Exec {
   path => '/usr/sbin:/usr/bin:/sbin:/bin', }
 
 node default {
   include apt
-  include dashing
   include locales
   include ntp
   include openssh
@@ -24,6 +22,8 @@ node default {
   include rclocal
   include sudo
   include timezone
+
+  package { 'bundler': ensure => present, } -> class { 'dashing': }
 
   class { 'r10k':
     remote  => 'https://github.com/gehel/raspbian-kiosk.git',
@@ -46,7 +46,7 @@ node default {
 
   class { 'role::kiosk':
     display_rotate     => '3',
-    framebuffer_width  => 1920,
-    framebuffer_height => 1080,
+    framebuffer_width  => 1080,
+    framebuffer_height => 1920,
   }
 }
