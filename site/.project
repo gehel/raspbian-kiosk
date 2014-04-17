@@ -4,6 +4,7 @@
 	<comment></comment>
 	<projects>
 		<project>apt</project>
+		<project>dashing</project>
 		<project>keyboard</project>
 		<project>locales</project>
 		<project>ntp</project>

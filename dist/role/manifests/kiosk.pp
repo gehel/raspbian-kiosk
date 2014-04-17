@@ -62,6 +62,4 @@ class role::kiosk (
     refreshonly => true,
   }
 
-  class { 'dashing':
-  }
 }
