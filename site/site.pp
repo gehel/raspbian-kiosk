@@ -46,7 +46,7 @@ node default {
 
   class { 'role::kiosk':
     display_rotate     => '3',
-    framebuffer_width  => 1080,
-    framebuffer_height => 1920,
+    framebuffer_width  => 1920,
+    framebuffer_height => 1080,
   }
 }
