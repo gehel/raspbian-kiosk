@@ -1,9 +1,6 @@
 mod 'apt',
   :git => 'https://github.com/example42/puppet-apt.git'
 
-mod 'chrome',
-  :git => 'https://github.com/gehel/puppet_chrome.git'
-
 mod 'concat',
   :git => 'https://github.com/puppetlabs/puppetlabs-concat.git'
 
