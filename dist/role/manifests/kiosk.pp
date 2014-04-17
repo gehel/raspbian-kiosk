@@ -34,12 +34,14 @@ class role::kiosk (
   file { '/boot/config.txt':
     ensure  => 'present',
     content => template('role/kiosk/boot-config.txt.erb'),
+    mode    => '755',
     notify  => Exec['reboot'],
   }
 
   file { '/boot/xinitrc':
     ensure  => 'present',
     content => template('role/kiosk/xinitrc.erb'),
+    mode    => '755',
     notify  => Exec['reboot'],
   }
 
