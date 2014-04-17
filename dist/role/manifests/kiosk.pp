@@ -1,5 +1,9 @@
 class role::kiosk (
-  $urls               = ['http://www.wikipedia.org', 'http://en.wikipedia.org/wiki/HTML_element#Frames',],
+  $urls               = [
+    'http://www.wikipedia.org',
+    'http://en.wikipedia.org/wiki/HTML_element#Frames',
+    'http://localhost:3030/sample',
+    ],
   $refresh_interval   = 5000,
   $user               = 'pi',
   $user_home          = '/home/pi',
@@ -35,33 +39,24 @@ class role::kiosk (
     ensure  => 'present',
     content => template('role/kiosk/boot-config.txt.erb'),
     mode    => '755',
-    notify  => Exec['reboot'],
   }
 
   file { '/boot/xinitrc':
     ensure  => 'present',
     content => template('role/kiosk/xinitrc.erb'),
     mode    => '755',
-    notify  => Exec['reboot'],
   }
 
   file { $dashboard_file:
     ensure  => 'present',
     owner   => $user,
     content => template('role/kiosk/dashboard.html.erb'),
-    notify  => Exec['reboot'],
   }
 
   rclocal::script { 'tv-screen':
     priority => '99',
     content  => template('role/kiosk/rclocal.erb'),
     autoexec => false,
-    notify   => Exec['reboot'],
-  }
-
-  exec { 'reboot':
-    command     => '/sbin/reboot',
-    refreshonly => true,
   }
 
 }
