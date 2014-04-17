@@ -26,16 +26,24 @@ class role::kiosk (
   file { '/boot/config.txt':
     ensure  => 'present',
     content => template('role/kiosk/boot-config.txt.erb'),
+    notify  => Exec['reboot'],
   }
 
   file { '/boot/xinitrc':
     ensure  => 'present',
     content => template('role/kiosk/xinitrc.erb'),
+    notify  => Exec['reboot'],
   }
 
   rclocal::script { 'tv-screen':
     priority => '99',
     content  => template('role/kiosk/rclocal.erb'),
     autoexec => false,
+    notify   => Exec['reboot'],
+  }
+
+  exec { 'reboot':
+    command     => '/sbin/reboot',
+    refreshonly => true,
   }
 }
