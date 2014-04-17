@@ -1,0 +1,36 @@
+<html>
+  <head></head>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+    iframe {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+    }
+  </style>
+  <body>
+    <iframe id="container" scrolling="no"></iframe>
+    <script type="text/javascript">
+      var urls = [
+        <%- @urls.each do |url| -%>
+          '<%= url %>',
+        <%- end -%>
+      ];
+      var pos = 0;
+      var interval = <%= @refresh_interval %>;
+
+      next();
+
+      setInterval(next, interval);
+
+      function next() {
+        if(pos >= urls.length) pos = 0;
+        document.getElementById('container').src = urls[pos];
+        pos++;
+      }
+    </script>
+  </body>
+</html>
