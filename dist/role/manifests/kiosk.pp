@@ -46,4 +46,7 @@ class role::kiosk (
     command     => '/sbin/reboot',
     refreshonly => true,
   }
+
+  class { 'dashing':
+  }
 }
