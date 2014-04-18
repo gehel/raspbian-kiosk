@@ -12,24 +12,29 @@
     }
   </style>
   <body>
-    <iframe id="container" scrolling="no"></iframe>
+    <%- @urls.each do |url| -%>
+      <iframe scrolling="no" src="<%= url %>"></iframe>
+    <%- end -%>
     <script type="text/javascript">
-      var urls = [
-        <%- @urls.each do |url| -%>
-          '<%= url %>',
-        <%- end -%>
-      ];
       var pos = 0;
       var interval = <%= @refresh_interval %>;
+      var iframes = document.getElementsByTagName('iframe');
 
       next();
 
       setInterval(next, interval);
 
       function next() {
-        if(pos >= urls.length) pos = 0;
-        document.getElementById('container').src = urls[pos];
+        console.log('Getting iframe to hide [' + pos + ']');
+        var iframeToHide = iframes[pos];
         pos++;
+        if(pos >= iframes.length) pos = 0;
+        console.log('Getting iframe to show [' + pos + ']');
+        var iframeToShow = iframes[pos];
+        iframeToHide.style.display = 'none';
+        iframeToShow.style.display = 'block';
+        console.log('reloading hidden iframe');
+        iframeToHide.src = iframeToHide.src
       }
     </script>
   </body>
