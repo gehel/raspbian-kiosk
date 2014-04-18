@@ -2,7 +2,6 @@ class role::kiosk (
   $urls               = [
     'http://www.wikipedia.org',
     'http://en.wikipedia.org/wiki/HTML_element#Frames',
-    'http://localhost:3030/sample',
     ],
   $refresh_interval   = 10000,
   $user               = 'pi',
