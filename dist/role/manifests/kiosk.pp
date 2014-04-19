@@ -1,14 +1,11 @@
 class role::kiosk (
-  $urls               = [
-    'http://www.wikipedia.org',
-    'http://en.wikipedia.org/wiki/HTML_element#Frames',
-    ],
+  $urls               = ['http://www.wikipedia.org', 'http://en.wikipedia.org/wiki/HTML_element#Frames',],
   $refresh_interval   = 10000,
   $user               = 'pi',
   $user_home          = '/home/pi',
   $framebuffer_width  = 1920,
   $framebuffer_height = 1080,
-  $display_rotate     = '0') {
+  $display_rotate     = '0',) {
   if !is_integer($refresh_interval) {
     fail("refresh_interval is not an integer [${refresh_interval}]")
   }

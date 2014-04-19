@@ -14,7 +14,10 @@ mod 'iptables',
   :git => 'https://github.com/example42/puppet-iptables.git'
 
 mod 'keyboard',
-  :git => 'https://github.com/gehel/puppet_keyboard.git'
+  :git => 'https://github.com/nervo/puppet_keyboard.git'
+
+mod 'kiosk',
+  :git => 'https://github.com/gehel/puppet-kiosk.git'
 
 mod 'locales',
   :git => 'https://github.com/puppetmodules/puppet-module-locales.git'

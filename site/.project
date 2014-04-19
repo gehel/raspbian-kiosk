@@ -6,6 +6,7 @@
 		<project>apt</project>
 		<project>dashing</project>
 		<project>keyboard</project>
+		<project>kiosk</project>
 		<project>locales</project>
 		<project>ntp</project>
 		<project>openssh</project>
