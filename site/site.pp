@@ -31,7 +31,7 @@ node default {
   }
 
   package { 'puppet': } -> cron { 'puppet-apply':
-    command => '/usr/bin/puppet apply --modulepath=/etc/puppet/environments/production/modules:/etc/puppet/environments/production/dist /etc/puppet/environments/production/site/site.pp',
+    command => '/usr/bin/puppet apply --modulepath=/etc/puppet/environments/production/modules /etc/puppet/environments/production/site/site.pp',
     hour    => '*',
     minute  => '10',
   }
@@ -43,7 +43,5 @@ node default {
 
   class { 'kiosk':
     display_rotate     => '3',
-    framebuffer_width  => 1920,
-    framebuffer_height => 1080,
   }
 }
