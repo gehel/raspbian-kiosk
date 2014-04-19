@@ -4,7 +4,6 @@
 ## curl https://raw.githubusercontent.com/gehel/raspbian-kiosk/master/init.sh | bash
 
 HOSTNAME=kiosk.home.ledcom.ch
-NTP_SERVER=fw.home.ledcom.ch
 
 echo 'set hostname'
 echo $HOSTNAME > /etc/hostname
@@ -13,10 +12,8 @@ hostname --file /etc/hostname
 echo 'start by running apt-get update'
 apt-get update
 
-echo 'make sure the date/time are set correctly'
-apt-get install -y ntpdate
-service ntp stop
-ntpdate $NTP_SERVER
+echo 'make sure the date/time is more or less correct so that SSL certificate validation works'
+date -s "18 APR 2014 12:00:00"
 
 echo 'make sure all packages are up to date'
 apt-get dist-upgrade -y
