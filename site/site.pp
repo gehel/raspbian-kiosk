@@ -42,6 +42,5 @@ node default {
   }
 
   class { 'kiosk':
-    display_rotate     => '3',
   }
 }
