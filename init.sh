@@ -2,6 +2,8 @@
 
 ## can be executed with:
 ## curl https://raw.githubusercontent.com/gehel/raspbian-kiosk/production/init.sh | bash
+## this script should be executed on a freshly installed raspbian image:
+## http://www.raspberrypi.org/downloads/
 
 HOSTNAME=kiosk.home.ledcom.ch
 
