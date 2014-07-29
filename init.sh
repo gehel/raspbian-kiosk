@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ## can be executed with:
-## curl https://raw.githubusercontent.com/gehel/raspbian-kiosk/master/init.sh | bash
+## curl https://raw.githubusercontent.com/gehel/raspbian-kiosk/production/init.sh | bash
 
 HOSTNAME=kiosk.home.ledcom.ch
 
