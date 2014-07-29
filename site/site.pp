@@ -24,7 +24,7 @@ node default {
 
   class { 'r10k':
     remote  => 'https://github.com/gehel/raspbian-kiosk.git',
-    version => '1.2.0',
+    version => '1.3.2',
   } -> cron { 'r10k-deploy-env':
     command => '/usr/local/bin/r10k deploy environment -p',
     minute  => '0',
